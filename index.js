@@ -1,14 +1,10 @@
-var express = require("express");
-// var logfmt = require("logfmt");
-var app = express();
+var app = require('express')();
+var http = require('http').Server(app);
 
-// app.use(logfmt.requestLogger());
-
-app.get('/', function(req, res) {
-  res.send('Hello World!');
+app.get('/', function(req, res){
+  res.send('<h1>Hello world</h1>');
 });
 
-var port = Number(process.env.PORT || 5000);
-app.listen(port, function() {
-  console.log("Listening on " + port);
+http.listen(3000, function(){
+  console.log('listening on *:3000');
 });
